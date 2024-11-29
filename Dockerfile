@@ -12,8 +12,10 @@ COPY .mvn .mvn
 
 RUN chmod a+x ./mvnw && ./mvnw package -Dmaven.test.skip=true
 
-ENV SERVER-PORT=4000
+ENV SERVER_PORT=4000
 
-EXPOSE ${SERVER-PORT}
+EXPOSE ${SERVER_PORT}
 
-ENTRYPOINT java -jar vttp5a-ssf-day17l-0.0.1-SNAPSHOT.jar 
+ENTRYPOINT java -jar target/vttp5a-ssf-day17l-0.0.1-SNAPSHOT.jar 
+# Another way to write entrypoint
+# ENTRYPOINT [ "java", "-jar", "target/vttp5a-ssf-day17l-0.0.1-SNAPSHOT.jar" ]
