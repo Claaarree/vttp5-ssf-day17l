@@ -23,6 +23,8 @@ public class JokeRestService {
     public List<Joke> getAllJokes() {
         List<Joke> jokesList = new ArrayList<>();
 
+        // if don't use getForEntity(), can use get with exchange seen in day 17 slides
+
         ResponseEntity<String> jokes = restTemplate.getForEntity(Utility.jokesUrl, String.class);
         String jokesString = jokes.getBody();
 
@@ -32,7 +34,7 @@ public class JokeRestService {
         for (int i = 0; i < jokeArray.size(); i++) {
             JsonObject joke = jokeArray.getJsonObject(i);
             Joke j = new Joke();
-            j.setGenre(joke.getString("type"));
+            j.setType(joke.getString("type"));
             j.setSetup(joke.getString("setup"));
             j.setPunchline(joke.getString("punchline"));
             j.setId(joke.getInt("id"));
@@ -40,6 +42,7 @@ public class JokeRestService {
             jokesList.add(j);
 
             // System.out.println(j.toString());
+            // System.out.println(joke.getString("type"));
         }
 
         return jokesList;

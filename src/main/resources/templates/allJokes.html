@@ -22,11 +22,11 @@
         <tbody>
             <span th:each="joke : ${jokes}">
                 <tr>
-                    <td th:utext="${joke.id}"></td>
-                    <td th:utext="${joke.genre}"></td>
+                    <td th:utext="${joke.id}" name="id"></td>
+                    <td th:utext="${joke.type}" name="type"></td>
                     <td>
-                        <span th:utext="${joke.setup}"></span><br>
-                        <span th:utext="${joke.punchline}"></span>
+                        <span th:utext="${joke.setup}" name="setup"></span><br>
+                        <span th:utext="${joke.punchline}" name="punchline"></span>
                     </td> 
                 </tr>
             </span>

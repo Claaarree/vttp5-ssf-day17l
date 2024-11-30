@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 public class Joke {
     
     @NotBlank(message = "Please select an appropriate genre!")
-    private String genre;
+    private String type;
     
     @NotBlank(message = "Please input an appropriate setup for the joke!")
     private String setup;
@@ -20,22 +20,19 @@ public class Joke {
     public Joke() {
     }
 
-    public Joke(@NotBlank(message = "Please select an appropriate genre!") String genre,
-            @NotBlank(message = "Please input an appropriate setup for the joke!") String setup,
-            @NotBlank(message = "Please input an appropriate punchline for the joke!") String punchline,
-            @Min(value = 0, message = "The ID number cannot be less than 0!") Integer id) {
-        this.genre = genre;
+    public Joke(String type, String setup, String punchline, Integer id) {
+        this.type = type;
         this.setup = setup;
         this.punchline = punchline;
         this.id = id;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getType() {
+        return type;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getSetup() {
@@ -64,7 +61,7 @@ public class Joke {
 
     @Override
     public String toString() {
-        return genre + "," + setup + "," + punchline + "," + id;
+        return type + "," + setup + "," + punchline + "," + id;
     }
 
     

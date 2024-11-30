@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Joke</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="container">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <form method="post" th:action="@{/jokes/create}" th:object="${joke}">
+        <div>
+            <label for="id">ID:</label>
+            <input name="id" id="id" th:field="*{id}" type="number">
+            <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+        </div>
+        <div>
+            <label for="type">Type:</label>
+            <input name="type" id="type" th:field="*{type}" type="text">
+            <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>
+        </div>
+        <div>
+            <label for="setup">Setup:</label>
+            <input name="setup" id="setup" th:field="*{setup}" type="text">
+            <span th:if="${#fields.hasErrors('setup')}" th:errors="*{setup}"></span>
+        </div>
+        <div>
+            <label for="punchline">Punchline:</label>
+            <input name="punchline" id="punchline" th:field="*{punchline}" type="text">
+            <span th:if="${#fields.hasErrors('punchline')}" th:errors="*{punchline}"></span>
+        </div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>
