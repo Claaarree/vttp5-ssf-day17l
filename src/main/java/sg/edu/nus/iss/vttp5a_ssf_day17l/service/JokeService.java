@@ -29,6 +29,8 @@ public class JokeService {
         // If auto-mapping must use the exact attribute name as in the external api!!
         ResponseEntity<List<Joke>> jokesList = restTemplate.exchange(Utility.jokesUrl, HttpMethod.GET, null, 
         new ParameterizedTypeReference<List<Joke>>() {});
+        // should not use parameterizedTypeReference! Use String.class!
+        // Then continue below to map the variables using JsonObject/JsonArrayBuilder....
 
         List<Joke> jokes = jokesList.getBody();
 
